@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saksham Bansal | Project Coordination Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2B2B28;
+    --ink-soft: #5B5B54;
+    --navy: #12213E;
+    --paper: #F4F3EF;
+    --paper-raised: #ECEAE3;
+    --teal: #3E7C7C;
+    --amber: #C98A3E;
+    --line: #D8D5CC;
+    --serif: 'Source Serif 4', serif;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.55;
+  }
+
+  a { color: var(--teal); }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+  }
+
+  /* ---------- Sidebar ---------- */
+  aside {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background: var(--navy);
+    color: #E9E7DF;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .id-block h1 {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 4px;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .id-block p.role {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: #9FB4C7;
+    margin: 0 0 28px;
+    letter-spacing: 0.02em;
+  }
+
+  nav { margin-top: 8px; }
+
+  nav a {
+    display: block;
+    font-size: 0.92rem;
+    color: #C9CBC2;
+    text-decoration: none;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: color 0.15s ease, padding-left 0.15s ease;
+  }
+
+  nav a:hover { color: #fff; padding-left: 4px; }
+
+  .sidebar-status {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: #8B94A3;
+    line-height: 1.9;
+  }
+
+  .status-row { display: flex; justify-content: space-between; gap: 12px; }
+  .status-dot { display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:6px; }
+  .dot-done { background: var(--teal); }
+  .dot-progress { background: var(--amber); }
+
+  .sidebar-contact {
+    margin-top: 24px;
+    font-size: 0.82rem;
+  }
+  .sidebar-contact a { color: #C9CBC2; display:block; margin-bottom: 6px; text-decoration:none; }
+  .sidebar-contact a:hover { color: #fff; }
+
+  /* ---------- Main ---------- */
+  main { padding: 64px 72px 120px; max-width: 880px; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--teal);
+    margin: 0 0 10px;
+  }
+
+  section { margin-bottom: 88px; scroll-margin-top: 40px; }
+
+  h2 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 0 20px;
+    color: var(--navy);
+    max-width: 22ch;
+  }
+
+  .intro-text {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 0 0 18px;
+  }
+
+  .intro-meta {
+    display: flex;
+    gap: 28px;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    flex-wrap: wrap;
+  }
+
+  .intro-meta div { font-size: 0.85rem; }
+  .intro-meta .label { font-family: var(--mono); color: var(--ink-soft); font-size: 0.72rem; display:block; margin-bottom:4px; }
+
+  /* Ticket-style case study cards */
+  .ticket {
+    border: 1px solid var(--line);
+    background: #fff;
+    padding: 32px 36px;
+    margin-bottom: 28px;
+  }
+
+  .ticket-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+  }
+
+  .ticket-head h3 {
+    font-family: var(--serif);
+    font-size: 1.35rem;
+    margin: 0;
+    color: var(--navy);
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    padding: 3px 9px;
+    border: 1px solid var(--teal);
+    color: var(--teal);
+    white-space: nowrap;
+    height: fit-content;
+  }
+
+  .tag.amber { border-color: var(--amber); color: var(--amber); }
+
+  .ticket p.summary { color: var(--ink-soft); margin: 0 0 18px; max-width: 68ch; }
+
+  .ticket-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 32px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+  }
+
+  .ticket-grid .field-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--ink-soft);
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .ticket-grid .field-value { font-size: 0.9rem; }
+
+  .ticket-links { margin-top: 18px; font-size: 0.85rem; }
+  .ticket-links a { margin-right: 18px; text-decoration: underline; }
+
+  /* Tools */
+  .tool-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.95rem;
+  }
+  .tool-row:first-child { border-top: 1px solid var(--line); }
+  .tool-name { font-weight: 500; }
+  .tool-note { color: var(--ink-soft); font-size: 0.85rem; }
+  .tool-status { font-family: var(--mono); font-size: 0.72rem; }
+
+  /* Contact */
+  .contact-box {
+    border: 1px solid var(--line);
+    background: #fff;
+    padding: 32px 36px;
+  }
+  .contact-box a.big-link {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 6px;
+  }
+
+  footer {
+    padding: 32px 72px;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 860px) {
+    .layout { grid-template-columns: 1fr; }
+    aside { position: relative; height: auto; }
+    main { padding: 40px 24px 80px; }
+    .ticket-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+  <aside>
+    <div>
+      <div class="id-block">
+        <h1>Saksham Bansal</h1>
+        <p class="role">Project Coordinator | Program &amp; Operations Support</p>
+      </div>
+      <nav>
+        <a href="#profile">Profile</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#tools">Tools &amp; Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div>
+      <div class="sidebar-status">
+        <div class="status-row"><span><span class="status-dot dot-done"></span>Trello / Asana</span><span>Learned</span></div>
+        <div class="status-row"><span><span class="status-dot dot-done"></span>Jira Fundamentals</span><span>Certified</span></div>
+        <div class="status-row"><span><span class="status-dot dot-progress"></span>Google PM (Coursera)</span><span>In progress</span></div>
+      </div>
+      <div class="sidebar-contact">
+        <a href="mailto:saksham.bansal0123@gmail.com">saksham.bansal0123@gmail.com</a>
+        <a href="https://linkedin.com/in/saksham-bansal-981082293" target="_blank">LinkedIn ↗</a>
+        <a href="resume.pdf" target="_blank">Resume (PDF) ↗</a>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+
+    <section id="profile">
+      <p class="eyebrow">profile</p>
+      <h2>I coordinate the parts of a project that decide whether it ships on time.</h2>
+      <p class="intro-text">
+        B.Tech graduate (AI &amp; Data Science) who has spent three years running a competitive
+        team's operations (scheduling, role assignment, weekly performance reviews) and a summer
+        turning raw business data into dashboards stakeholders actually used. Now applying that same
+        planning-and-tracking instinct to project coordination roles: defining scope, keeping timelines
+        honest, and making sure the right people know the right thing at the right time.
+      </p>
+      <div class="intro-meta">
+        <div><span class="label">based in</span>Jaipur, India</div>
+        <div><span class="label">looking for</span>Project Coordinator / Associate PM roles</div>
+        <div><span class="label">background</span>Data Analytics + Team Operations</div>
+      </div>
+    </section>
+
+    <section id="case-studies">
+      <p class="eyebrow">case studies</p>
+      <h2>Three ways I've planned and run work</h2>
+
+      <div class="ticket">
+        <div class="ticket-head">
+          <h3>Campus Cup Tournament Ops</h3>
+          <span class="tag">Delivered - National Win</span>
+        </div>
+        <p class="summary">
+          Formed and ran a 5-member competitive Valorant roster from scratch for the JioGames
+          Valorant Campus Cup, serving as IGL, Team Lead, and Strategist, culminating in a national win
+          at the Chandigarh University LAN Finals against 500+ competing teams nationwide.
+        </p>
+        <div class="ticket-grid">
+          <div><span class="field-label">timeline</span><span class="field-value">Early 2025 – Mar 2026 (~1 year)</span></div>
+          <div><span class="field-label">team size</span><span class="field-value">5 members</span></div>
+          <div><span class="field-label">tools used</span><span class="field-value">Discord, Valoplant</span></div>
+          <div><span class="field-label">key artifact</span><span class="field-value">Round-loss review log</span></div>
+        </div>
+        <p class="summary" style="margin-top:16px;">
+          Full write-up covers role structure, the VOD-review process behind our KPI tracking,
+          how player friction and strategy plateaus were resolved, and what carried over into how
+          I approach project work today.
+        </p>
+        <div class="ticket-links">
+          <a href="campus-cup-case-study.html">Full case study ↗</a>
+          <a href="https://trello.com/b/HxZUFMPF" target="_blank">Trello board (recreated) ↗</a>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-head">
+          <h3>Coaching Service: Booking Automation & Growth Launch</h3>
+          <span class="tag">Delivered</span>
+        </div>
+        <p class="summary">
+          Real service-business launch project: automating manual session scheduling via a
+          Discord booking system and running a 2-week push toward a 5-monthly-client target,
+          using the standard PM toolkit: charter, WBS, schedule, RACI, and risk register.
+        </p>
+        <div class="ticket-grid">
+          <div><span class="field-label">timeline</span><span class="field-value">2-week sprint</span></div>
+          <div><span class="field-label">target</span><span class="field-value">5 monthly clients</span></div>
+          <div><span class="field-label">tools used</span><span class="field-value">Discord (ticket-tool automation), Canva</span></div>
+          <div><span class="field-label">format</span><span class="field-value">Real, live business</span></div>
+        </div>
+        <p class="summary" style="margin-top:16px;">
+          Full write-up covers the charter, work breakdown, RACI mapping for a solo operator,
+          risk register, and a real mid-sprint status report.
+        </p>
+        <div class="ticket-links">
+          <a href="coaching-launch-case-study.html">Full case study ↗</a>
+        </div>
+      </div>
+        </div>
+      </div>
+
+      <div class="ticket">
+        <div class="ticket-head">
+          <h3>Job Search Operations Tracker</h3>
+          <span class="tag amber">In Progress</span>
+        </div>
+        <p class="summary">
+          Built a fast-entry application tracker and Power BI dashboard to bring visibility to
+          my own job search after a month of 150 applications with no system to show what was
+          actually working.
+        </p>
+        <div class="ticket-grid">
+          <div><span class="field-label">problem</span><span class="field-value">150 applications/month, zero visibility</span></div>
+          <div><span class="field-label">tools used</span><span class="field-value">Google Sheets, Power BI</span></div>
+          <div><span class="field-label">tracks</span><span class="field-value">Channel, role-fit score, funnel status</span></div>
+          <div><span class="field-label">phases</span><span class="field-value">Discovery → Plan → Build → Validate → Deliver</span></div>
+        </div>
+        <p class="summary" style="margin-top:16px;"><em>Dashboard and full case study \u2014 including real response-rate and channel-performance data \u2014 coming once 2 weeks of live tracking data is in.</em></p>
+        <div class="ticket-links">
+          <a href="#">Full case study ↗</a>
+          <a href="#">Dashboard ↗</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="tools">
+      <p class="eyebrow">tools &amp; certifications</p>
+      <h2>What I work with</h2>
+
+      <div class="tool-row">
+        <div><span class="tool-name">Jira</span> - <span class="tool-note">Fundamentals, Atlassian University - <a href="https://drive.google.com/file/d/1b37sEx-chRKV1z3eu1Bf95DiiHj-KPdh/view?usp=sharing" target="_blank" style="color:var(--teal);">view certificate ↗</a></span></div>
+        <div class="tool-status" style="color:var(--teal);">certified</div>
+      </div>
+      <div class="tool-row">
+        <div><span class="tool-name">Trello</span> - <span class="tool-note">Board setup, workflow tracking</span></div>
+        <div class="tool-status" style="color:var(--teal);">learned</div>
+      </div>
+      <div class="tool-row">
+        <div><span class="tool-name">Asana</span> - <span class="tool-note">Task &amp; timeline management</span></div>
+        <div class="tool-status" style="color:var(--teal);">learned</div>
+      </div>
+      <div class="tool-row">
+        <div><span class="tool-name">Google Project Management (Coursera)</span> - <span class="tool-note">Foundations of Project Management</span></div>
+        <div class="tool-status" style="color:var(--amber);">in progress</div>
+      </div>
+      <div class="tool-row">
+        <div><span class="tool-name">Power BI / SQL / Excel</span> - <span class="tool-note">Reporting &amp; dashboarding</span></div>
+        <div class="tool-status" style="color:var(--teal);">proficient</div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <p class="eyebrow">contact</p>
+      <h2>Open to Project Coordinator &amp; Associate PM roles</h2>
+      <div class="contact-box">
+        <p class="summary" style="margin-bottom:0;">Based in Jaipur, open to remote and metro roles across India.</p>
+        <a class="big-link" href="mailto:saksham.bansal0123@gmail.com">saksham.bansal0123@gmail.com →</a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  Saksham Bansal | Project Coordination Portfolio
+</footer>
+
+</body>
+</html>
